@@ -1,0 +1,53 @@
+﻿@model EdTech_game.ViewModels.PhotoData
+
+@{
+    ViewBag.Title = "Photo";
+}
+
+<h2>Photo</h2>
+
+@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { id = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>PhotoData</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.HiddenFor(model => model.vendorId)
+            <div id="photo">
+                <p>
+                    <img id="output" width="200" />
+                </p>
+            </div>
+            <div id="photo_input">
+                <p>
+                    <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;">
+                </p>
+                <p>
+                    <label for="file" style="cursor: pointer;">Upload Image</label>
+                </p>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="送出" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@section scripts{
+    <script>var loadFile = function (event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };</script>
+    
+
+}
