@@ -1,74 +1,149 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
-<div id="title">
-    <p id="title_text"> 教育科技展實境闖關遊戲 </p>
-    <p id="name"> 參與者：郭尚蓁 </p>
-</div>
+﻿@{ ViewBag.Title = "Home Page"; }
 
-<div class="first_line">
-    <div>
-        <a href='@Url.Action("Photo",new { vendorId="A"})'>
-            <img src="C:\Users\t1063\OneDrive\Desktop\EdTech_net\EdTech_game\img\logo.jpg" id="first_head">
-        </a>
-        <p id="first_name"> 廠商 A </p>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 首頁 </title>
+    <style type="text/css">
+        #title_text {
+            font-size: 40px;
+            margin: 5px;
+            border: 5px;
+            text-align: center;
+            font-weight: bold;
+            letter-spacing: 20px;
+            color: #696969;
+            font-family: Microsoft JhengHei;
+            /* border-style:double; */
+        }
+
+        #name {
+            text-align: center;
+            font-family: Microsoft JhengHei;
+        }
+
+        #all {
+            display: inline-block;
+            margin: 15px auto;
+            text-align: justify;
+            vertical-align: middle;
+        }
+
+        #first_head, #second_head, #third_head, #fourth_head, #fifth_head, #sixth_head, #seventh_head, #eighth_head {
+            width: 200px;
+            height: auto;
+            border-radius: 50%
+        }
+
+        #first_name, #second_name, #third_name, #fourth_name, #fifth_name, #sixth_name, #seventh_name, #eighth_name {
+            font-family: "微軟正黑體";
+            font-size: 18px;
+            color: #707070;
+            text-align: center;
+        }
+
+        .line div {
+            display: inline-block;
+            vertical-align: top;
+            width: 200px;
+            height: 250px;
+            margin: 0px 30px 0px 30px;
+
+        }
+
+        .line {
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .item {
+            text-align: center;
+            width: auto;
+        }
+
+        .logo_img {
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="title">
+        <p id="name"> 參與者：郭尚蓁 </p>
     </div>
 
-    <div>
-        <!-- <img src="img/logo.jpg" alt="head" id="second_head"> -->
-        <a href='@Url.Action("Photo",new { vendorId="B"})'>
-            <img src="img/logo.jpg" id="second_head">
-        </a>
-        <p id="second_name"> 廠商 B </p>
+    <div class="line">
+        <div class="item">
+            <a href='@Url.Action("Photo",new { vendorId="A"})'>
+                <img src="img/logo.jpg" id="first_head">
+            </a>
+            <p id="first_name"> 廠商 A </p>
+            
+        </div>
+
+        <div class="item">
+            <!-- <img src="img/logo.jpg" alt="head" id="second_head"> -->
+            <a href='@Url.Action("Photo",new { vendorId="B"})'>
+                <img src="img/logo.jpg" id="second_head">
+            </a>
+            <p id="second_name"> 廠商 B </p>
+        </div>
+
+        <div class="item">
+            <!-- <img src="img/logo.jpg" alt="head" id="third_head"> -->
+            <a href='@Url.Action("Photo",new { vendorId="C"})'>
+                <img src="img/logo.jpg" id="third_head">
+            </a>
+            <p id="third_name"> 廠商 C </p>
+        </div>
+
+        <div class="item">
+            <!-- <img src="img/logo.jpg" alt="head" id="fourth_head"> -->
+            <a href='@Url.Action("Photo",new { vendorId="D"})'>
+                <img src="img/logo.jpg" id="fourth_head">
+            </a>
+            <p id="fourth_name"> 廠商 D </p>
+        </div>
+
+        <div class="item">
+            <!-- <img src="img/logo.jpg" alt="head" id="fifth_head"> -->
+            <a href='@Url.Action("Photo",new { vendorId="E"})'>
+                <img src="img/logo.jpg" id="fifth_head">
+            </a>
+            <p id="fifth_name"> 廠商 E </p>
+        </div>
+
+        <div class="item">
+            <!-- <img src="img/logo.jpg" alt="head" id="sixth_head"> -->
+            <a href='@Url.Action("Photo",new { vendorId="F"})'>
+                <img src="img/logo.jpg" id="sixth_head">
+            </a>
+            <p id="sixth_name"> 廠商 F </p>
+        </div>
+
+        <div class="item">
+            <!-- <img src="img/logo.jpg" alt="head" id="seventh_head"> -->
+            <a href='@Url.Action("Photo",new { vendorId="G"})'>
+                <img src="img/logo.jpg" id="seventh_head">
+            </a>
+            <p id="seventh_name"> 廠商 G </p>
+        </div>
+
+        <div class="item">
+            <!-- <img src="img/logo.jpg" alt="head" id="eighth_head"> -->
+            <a href='@Url.Action("Photo",new { vendorId="H"})'>
+                <img src="img/logo.jpg" id="eighth_head">
+            </a>
+            <p id="eighth_name"> 廠商 H </p>
+        </div>
     </div>
 
-    <div>
-        <!-- <img src="img/logo.jpg" alt="head" id="third_head"> -->
-        <a href='@Url.Action("Photo",new { vendorId="C"})'>
-            <img src="img/logo.jpg" id="third_head">
-        </a>
-        <p id="third_name"> 廠商 C </p>
-    </div>
+    <div class="second_line">
+        
 
-    <div>
-        <!-- <img src="img/logo.jpg" alt="head" id="fourth_head"> -->
-        <a href='@Url.Action("Photo",new { vendorId="D"})'>
-            <img src="img/logo.jpg" id="fourth_head">
-        </a>
-        <p id="fourth_name"> 廠商 D </p>
     </div>
-</div>
-
-<div class="second_line">
-    <div>
-        <!-- <img src="img/logo.jpg" alt="head" id="fifth_head"> -->
-        <a href='@Url.Action("Photo",new { vendorId="E"})'>
-            <img src="img/logo.jpg" id="fifth_head">
-        </a>
-        <p id="fifth_name"> 廠商 E </p>
-    </div>
-
-    <div>
-        <!-- <img src="img/logo.jpg" alt="head" id="sixth_head"> -->
-        <a href='@Url.Action("Photo",new { vendorId="F"})'>
-            <img src="img/logo.jpg" id="sixth_head">
-        </a>
-        <p id="sixth_name"> 廠商 F </p>
-    </div>
-
-    <div>
-        <!-- <img src="img/logo.jpg" alt="head" id="seventh_head"> -->
-        <a href='@Url.Action("Photo",new { vendorId="G"})'>
-            <img src="img/logo.jpg" id="seventh_head">
-        </a>
-        <p id="seventh_name"> 廠商 G </p>
-    </div>
-
-    <div>
-        <!-- <img src="img/logo.jpg" alt="head" id="eighth_head"> -->
-        <a href='@Url.Action("Photo",new { vendorId="H"})'>
-            <img src="img/logo.jpg" id="eighth_head">
-        </a>
-        <p id="eighth_name"> 廠商 H </p>
-    </div>
-</div>
+ </body>
+</html>
