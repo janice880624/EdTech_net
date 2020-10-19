@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\EdTech_game\\Scripts",
+    "\\EdTech_game\\Views",
+    "\\EdTech_game\\Views\\Shared"
   ],
   "SelectedNode": "\\EdTech_game.sln",
   "PreviewInSolutionExplorer": false

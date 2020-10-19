@@ -1,53 +1,135 @@
-﻿@model EdTech_game.ViewModels.PhotoData
+﻿@*@model EdTech_game.ViewModels.PhotoData
 
-@{
-    ViewBag.Title = "Photo";
-}
+    @{
+        ViewBag.Title = "Photo";
+    }
 
-<h2>Photo</h2>
+    <h2>Photo</h2>
 
-@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { id = "form" }))
-{
-    @Html.AntiForgeryToken()
+    @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { id = "form" }))
+    {
+        @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>PhotoData</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.HiddenFor(model => model.vendorId)
-            <div id="photo">
-                <p>
-                    <img id="output" width="200" />
-                </p>
+        <div class="form-horizontal">
+            <h4>PhotoData</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.HiddenFor(model => model.vendorId)
+                <div id="photo">
+                    <p>
+                        <img id="output" width="200" />
+                    </p>
+                </div>
+                <div id="photo_input">
+                    <p>
+                        <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;">
+                    </p>
+                    <p>
+                        <label for="file" style="cursor: pointer;">Upload Image</label>
+                    </p>
+
+                </div>
             </div>
-            <div id="photo_input">
-                <p>
-                    <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;">
-                </p>
-                <p>
-                    <label for="file" style="cursor: pointer;">Upload Image</label>
-                </p>
 
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="送出" class="btn btn-default" />
+                </div>
             </div>
         </div>
+    }
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="送出" class="btn btn-default" />
-            </div>
-        </div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-@section scripts{
-    <script>var loadFile = function (event) {
+    @section scripts{
+        <script>var loadFile = function (event) {
+                var image = document.getElementById('output');
+                image.src = URL.createObjectURL(event.target.files[0]);
+            };</script>
+
+
+    }*@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> 拍照上傳 </title>
+    <link rel="stylesheet" href="photo.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="photo.js"></script>
+    <style type="text/css">
+        #name {
+            text-align: center;
+            font-family: Microsoft JhengHei;
+        }
+
+        #all {
+            display: inline-block;
+            margin: 15px auto;
+            text-align: justify;
+            vertical-align: middle;
+        }
+
+        #photo_input {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        #photo {
+            border-color: #aaaaee;
+            border-style: solid;
+            border-width: 3px;
+            padding: 5px;
+            text-align: center;
+            width: 80%;
+            height: auto;
+            margin: 0px auto;
+        }
+
+        #upload_photo {
+            border-style: solid;
+            border-width: 3px;
+            border-radius: 10px;
+            width: 70px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+    <script>
+        var loadFile = function (event) {
             var image = document.getElementById('output');
             image.src = URL.createObjectURL(event.target.files[0]);
-        };</script>
-    
+        };
+    </script>
 
-}
+</head>
+<body gcolor="#F5F5F5">
+    <div id="title">
+        <p id="name"> 參與者：郭尚蓁 </p>
+    </div>
+
+    <div id="photo">
+        <p>
+            <img id="output" width="80%" />
+        </p>
+    </div>
+    <div id="photo_input">
+        <p>
+            <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;" >
+        </p>
+        <p>
+            <label for="file" style="cursor: pointer;" id="upload_photo"> 上傳照片 </label>
+        </p>
+        <button type="button"> 送出 </button>
+    </div>
+
+</body>
+
+</html>
